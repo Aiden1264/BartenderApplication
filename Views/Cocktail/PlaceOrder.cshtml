@@ -1,23 +1,28 @@
 ﻿@model BartenderApplication.Models.CocktailOrder
 
-<h2>Place a Cocktail Order</h2>
+<div class="container mt-4">
+    <h2 class="mb-4 text-center">Place a Cocktail Order</h2>
 
-<form asp-action="PlaceOrder" method="post">
-    <div class="form-group">
-        <label>Patron Name</label>
-        <input asp-for="PatronName" class="form-control" />
+    <div class="card shadow-sm p-4">
+        <form asp-action="PlaceOrder" method="post">
+            <div class="mb-3">
+                <label class="form-label">Patron Name</label>
+                <input asp-for="PatronName" class="form-control" placeholder="Enter your name" />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Cocktail Name</label>
+                <input asp-for="CocktailName" class="form-control" placeholder="e.g., Mojito" />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Notes (optional)</label>
+                <textarea asp-for="Notes" class="form-control" rows="3" placeholder="Any special instructions?"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">Submit Order</button>
+        </form>
     </div>
+</div>
 
-    <div class="form-group">
-        <label>Cocktail Name</label>
-        <input asp-for="CocktailName" class="form-control" />
-    </div>
-
-    <div class="form-group">
-        <label>Notes (optional)</label>
-        <input asp-for="Notes" class="form-control" />
-    </div>
-
-    <button type="submit" class="btn btn-success">Submit Order</button>
-</form>
 

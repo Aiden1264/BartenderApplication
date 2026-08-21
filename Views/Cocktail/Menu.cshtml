@@ -1,13 +1,24 @@
 ﻿@model List<string>
 
-<h2>Cocktail Menu</h2>
+<div class="container mt-4">
+    <h2 class="mb-4 text-center">Cocktail Menu</h2>
 
-<ul>
-    @foreach (var drink in Model)
-    {
-        <li>@drink</li>
-    }
-</ul>
+    <div class="row">
+        @foreach (var drink in Model)
+        {
+            <div class="col-md-4 mb-3">
+                <div class="card shadow-sm">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">@drink</h5>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
 
-<a href="/Cocktail/PlaceOrder" class="btn btn-primary">Place an Order</a>
+    <div class="text-center mt-4">
+        <a href="/Cocktail/PlaceOrder" class="btn btn-success btn-lg">Place an Order</a>
+    </div>
+</div>
+
 

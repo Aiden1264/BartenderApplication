@@ -1,29 +1,32 @@
 ﻿@model List<BartenderApplication.Models.CocktailOrder>
 
-<h2>Order Queue</h2>
+<div class="container mt-4">
+    <h2 class="mb-4 text-center">Order Queue</h2>
 
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>Patron</th>
-            <th>Cocktail</th>
-            <th>Order Time</th>
-            <th>Status</th>
-            <th>Notes</th>
-        </tr>
-    </thead>
-
-    <tbody>
-        @foreach (var order in Model)
-        {
+    <table class="table table-bordered table-striped shadow-sm">
+        <thead class="table-dark">
             <tr>
-                <td>@order.PatronName</td>
-                <td>@order.CocktailName</td>
-                <td>@order.OrderTime</td>
-                <td>@order.Status</td>
-                <td>@order.Notes</td>
+                <th>Patron</th>
+                <th>Cocktail</th>
+                <th>Order Time</th>
+                <th>Status</th>
+                <th>Notes</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+
+        <tbody>
+            @foreach (var order in Model)
+            {
+                <tr>
+                    <td>@order.PatronName</td>
+                    <td>@order.CocktailName</td>
+                    <td>@order.OrderTime.ToString("g")</td>
+                    <td>@order.Status</td>
+                    <td>@order.Notes</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
 
