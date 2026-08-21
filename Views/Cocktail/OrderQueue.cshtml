@@ -1,0 +1,29 @@
+﻿@model List<BartenderApplication.Models.CocktailOrder>
+
+<h2>Order Queue</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Patron</th>
+            <th>Cocktail</th>
+            <th>Order Time</th>
+            <th>Status</th>
+            <th>Notes</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var order in Model)
+        {
+            <tr>
+                <td>@order.PatronName</td>
+                <td>@order.CocktailName</td>
+                <td>@order.OrderTime</td>
+                <td>@order.Status</td>
+                <td>@order.Notes</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

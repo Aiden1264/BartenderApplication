@@ -1,0 +1,13 @@
+﻿@model List<string>
+
+<h2>Cocktail Menu</h2>
+
+<ul>
+    @foreach (var drink in Model)
+    {
+        <li>@drink</li>
+    }
+</ul>
+
+<a href="/Cocktail/PlaceOrder" class="btn btn-primary">Place an Order</a>
+
