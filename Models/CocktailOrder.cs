@@ -1,4 +1,6 @@
-﻿namespace BartenderApplication.Models
+﻿using System;
+
+namespace BartenderApplication.Models
 {
     public class CocktailOrder
     {
