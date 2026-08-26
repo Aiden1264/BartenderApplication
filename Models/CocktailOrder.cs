@@ -14,7 +14,7 @@ namespace BartenderApplication.Models
 
         public OrderStatus Status { get; set; } = OrderStatus.Queued;
 
-        public string Notes { get; set; }
+        public string? Notes { get; set; }
     }
 
     public enum OrderStatus

@@ -12,7 +12,9 @@
 
             <div class="mb-3">
                 <label class="form-label">Cocktail Name</label>
-                <input asp-for="CocktailName" class="form-control" placeholder="e.g., Mojito" />
+                <select asp-for="CocktailName" asp-items="ViewBag.Cocktails" class="form-select">
+                    <option value="">Select a cocktail...</option>
+                </select>
             </div>
 
             <div class="mb-3">

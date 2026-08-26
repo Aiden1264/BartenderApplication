@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using BartenderApplication.Data;
 using BartenderApplication.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace BartenderApplication.Controllers
 {
@@ -16,22 +17,15 @@ namespace BartenderApplication.Controllers
         // GET: /Cocktail/Menu
         public IActionResult Menu()
         {
-            // Later you can replace this with a real menu table
-            var menu = new List<string>
-            {
-                "Mojito",
-                "Old Fashioned",
-                "Margarita",
-                "Cosmopolitan",
-                "Whiskey Sour"
-            };
-
+            var menu = GetMenu();
             return View(menu);
         }
 
         // GET: /Cocktail/PlaceOrder
         public IActionResult PlaceOrder()
         {
+            // Provide the menu as a SelectList to populate a dropdown in the view
+            ViewBag.Cocktails = new SelectList(GetMenu());
             return View();
         }
 
@@ -46,7 +40,22 @@ namespace BartenderApplication.Controllers
                 return RedirectToAction("OrderQueue");
             }
 
+            // If validation fails, repopulate the SelectList before returning the view
+            ViewBag.Cocktails = new SelectList(GetMenu());
             return View(order);
+        }
+
+        private List<string> GetMenu()
+        {
+            // Centralized menu list so multiple actions can reuse it
+            return new List<string>
+            {
+                "Mojito",
+                "Old Fashioned",
+                "Margarita",
+                "Cosmopolitan",
+                "Whiskey Sour"
+            };
         }
 
         // GET: /Cocktail/OrderQueue
@@ -57,4 +66,5 @@ namespace BartenderApplication.Controllers
         }
     }
 }
+
 
